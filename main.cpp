@@ -1,61 +1,77 @@
 #include <iostream>
 using namespace std;
 
-class heatcool {
-
+class officer{
 private:
-    int temp = 15;
-
+    int officerID;
+    string officerName;
+    string officerRank;
+    static int c;
 public:
-
-    int warm(){
-        temp = temp + 5;
-        return temp;
-    }
-    int cool(){
-        temp = temp - 5;
-        return temp;
+    void Print()
+    {
+        cout << "Enter ID of Officer" << endl;
+        cin >> officerID;
+        cout << "Enter Name of Officer" << endl;
+        cin >> officerName;
+        cout << "Enter rank of officer" << endl;
+        cin >> officerRank;
     }
     
+    void Palindrome()
+    {
+        int r = 0;
+        int number;
+        int n = officerID;
+            while (officerID > 0)
+            {
+                number = officerID % 10;
+                r = (r * 10) + number;
+                officerID = officerID / 10;
+            }
+        if (n==r)
+        {
+            cout << "Officer cannot enter the area" << endl;
+        }
+        else
+        {
+            cout << "Officers can enter the area" << endl;
+            c++;
+        }
+    }
+    
+    void total()
+    {
+        cout << "Total Officers are: " << c << endl;
+    }
 };
+int officer::c = 0;
 
 int main() {
-    heatcool f1;
-    f1.cool();
-    f1.warm();
     int option;
-    
-    while (1) {
-        cout << endl;
-        cout << "Current temperature is 15" << endl;
-        cout << endl;
-        
-        cout << "Press 1 to WARM."<<endl;
-        cout << "Press 2 to COOL."<<endl;
-        cout << endl;
-        
-        cout << "Enter any option: ";
-        cin>>option;
-        cout << endl;
-        
-        switch(option)
+    officer a1;
+    do {
+        cout << "Press 1 to Enter Officer ID" << endl;
+        cout << "Press 2 to know total number of Officers in town" << endl;
+        cout << "Press 3 to Exit" << endl;
+        cout << "Enter option" << endl;
+        cin >> option;
+        if (option != 1 && option != 2 && option != 3) {
+            cout << "Please enter the correct option";
+            cin >> option;
+        }
+        switch (option)
         {
-            case 1:
-                cout << "The temperature is now " << f1.warm() << " :)" << endl;
+        case 1:
+            a1.Print();
+            a1.Palindrome();
             break;
-                    
-            case 2 :
-                cout << "The temperature is now " << f1.cool() << " :)"<< endl;
+        case 2:
+            a1.total();
             break;
-                
-            return 0;
-                default:
-                break;
-            }
-    
-    }
-
-    
-    
-    return 0;
+        default:
+            break;
+        }
+    } while (option != 3);
 }
+
