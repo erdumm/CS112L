@@ -1,0 +1,77 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+class person {
+private:
+    string uni;
+    string comp;
+    string name;
+    friend class coordinator;
+public:
+    void p1() {
+        cout << "enter uni name for person 1" << endl;
+    }
+    void p2() {
+        cout << "enter uni name for person 2" << endl;
+    }
+    void p3() {
+        cout << "enter comp name for person 1 " << endl;
+    }
+    void p4() {
+        cout << "enter comp name for person 2" << endl;
+    }
+    
+
+};
+class coordinator {
+    person p1,p2;
+    int count=0;
+private:
+    string person1;
+    string person2;
+public:
+    void print() {
+        cout << "enter person 1 details" << endl;
+        cin >> person1;
+        cin >> p1.uni;
+        cin >> p1.comp;
+        cout << "enter person 2 details";
+        cin >> person2;
+        cin >> p2.uni;
+        cin >> p2.comp;
+        cout << "the person1 details are  " << person1 << "  " << p1.uni << "  " << p1.comp << endl;
+        cout << "the person2 details are " << person2 << "  " << p2.uni << "  " << p2.comp << endl;
+    }
+    void maxlen() {
+        int s,a;
+        p1.comp = s;
+        p2.comp = a;
+        for (int i = 0; i < s; i++) {
+            count++;
+        }
+        for (int i = 0; i < a; i++) {
+            count++;
+        }
+        
+    }
+    void check() {
+        
+        if (p1.uni == p2.uni) {
+            cout << "person1 and person 2 are roommate" << endl;
+
+        }
+        cout << "their room number is " << count<< endl;
+        if (p1.uni != p2.uni) {
+            cout << "person1 and person2 are not roomate" << endl;
+        }
+    }
+};
+        int main() {
+            coordinator c;
+            person p;
+            c.print();
+            c.check();
+            
+
+            return 0;
+        }
